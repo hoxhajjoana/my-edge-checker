@@ -1,12 +1,13 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-
+import Body from "./Body";
+import Header from "./Header";
 
 function App() {
   return(
     <div className="App">
 
-        <div>edgeCheker yo!</div>
+        <Header/>
+        <Body/>
         
         <Router>
             <Routes>
