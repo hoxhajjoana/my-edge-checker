@@ -25,15 +25,9 @@ function HeaderInput(props){
 
         <>
         
-        <label>
-            {props.type} Header Key:
-            <input type="text" ref={keyInput} onChange={handleKeyChange}/>
-        </label>
-
-        <label>
-            {props.type} Header Value:
-            <input type="text" ref={valueInput} onChange={handleValueChange}/>
-        </label>
+        <input type="text" placeholder={`${props.type} Header Key:`} ref={keyInput} onChange={handleKeyChange}/>
+    
+        <input type="text" placeholder={`${props.type} Header Value:`} ref={valueInput} onChange={handleValueChange}/>
 
         <br/><br/>
 

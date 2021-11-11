@@ -1,5 +1,6 @@
 import React, {useRef, useState } from "react";
 import HeaderInput from "./HeaderInput";
+import ResponseTable from "./ResponseTable";
 
 
 function Form(props){
@@ -66,9 +67,9 @@ function Form(props){
         }
     }    
 
-    async function handleSubmit(){
+    async function handleSubmit(event){
 
-
+        event.preventDefault();
 
         setResponse(null);
 
@@ -199,7 +200,7 @@ function Form(props){
 
         {loading && "Loading..."}
 
-        {sent && response && "results here"}
+        {sent && response && <ResponseTable response={response}/>}
 
     </div>
     </>

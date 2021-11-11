@@ -22,3 +22,15 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+.hidden{
+  display:none
+}
