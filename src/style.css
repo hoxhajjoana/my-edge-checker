@@ -23,14 +23,88 @@ body {
   justify-content: center;
 }
 
+form{
+  min-width: 100%;
+  margin: 2em;
+  text-align: center;
+}
+
+
+input[type=text]{
+  min-width: 40%;
+  min-height: 3em;
+  background-color: #daf5fa;
+  color: white;
+  padding: 0.8em, 1.2em;
+  margin: 0.1em 1.2em;
+  border: none;
+  border-radius: 0.5em;
+}
+
+input[type=submit] {
+  width: 40%;
+  background-color: #008cff;
+  color: white;
+  padding: 0.8em 1.2em;
+  margin: 0.1em 1.2em;
+  border: none;
+  border-radius:0.5em;
+  cursor: pointer;
+}
+input[type=submit]:hover{
+  background-color:#006acc;
+}
+
+button[type=button]{
+  border: none;
+  margin:1em;
+  height: 2em;
+  line-height: 2em;  
+  width: 2em;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: #008cff;
+  color: white;
+  text-align: center;
+}
+
+button[type=button]:hover{
+  background-color: #006acc;
+}
+
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #f0f0f0;
 }
 
 table{
+  width: auto;
+  margin: 2em;
   border-collapse: collapse;
+  display: block;
+  text-align: center;
+  overflow-x: auto;
+}
+td {
+  white-space:nowrap;
+}
+td:last-child {
+  width:100%;
+}
+
+
+th,td{
+
+  padding: 1em;
 }
 
 .hidden{
   display:none
+}
+
+.left{
+  text-align: left;
+}
+
+.chosenHeaders:hover{
+  background-color: #f1f1f1;
 }
