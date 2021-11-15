@@ -3,15 +3,6 @@ import HeaderTable from "./HeaderTable";
 
 function RequestTable(props){
 
-    const string = props.searchString?<tr>
-    <th>Search String</th>
-        <td>{props.searchString}</td>
-    </tr>:"";
-    const error = props.errorMessages?<tr>
-    <th>Error Messages</th>
-        <td>{props.errorMessages}</td>
-    </tr>:"";
-
     return(
 
         <table>
@@ -20,10 +11,10 @@ function RequestTable(props){
                     <th>URL</th>
                     <td>{props.url}</td>
                 </tr>
-                {string}
-                <HeaderTable headers={props.requestHeaders} table="Request"/>
-                <HeaderTable headers={props.responseHeaders} table="Response"/>
-                {error}
+                {props.searchString ? <tr><th>Search String</th><td>{props.searchString}</td></tr> : ""}
+                {Object.keys(props.requestHeaders).length !==0 ? <HeaderTable headers={props.requestHeaders} table="Request Hearders"/> : ""}
+                {Object.keys(props.responseHeaders).length !==0  ? <HeaderTable headers={props.responseHeaders} table="Response Headers"/> : ""}
+                {Object.keys(props.errorMessages).length !==0  ? <HeaderTable headers={props.errorMessages} table="Error Messages"/> : ""}
 
             </tbody>
         </table>

@@ -2,7 +2,7 @@ import React from "react";
 
 function HeaderTable(props){
 
-    const rows = [];
+    const rows = props.headers?[]:"";
 
     Object.keys(props.headers).forEach((key) => {
 
@@ -17,7 +17,7 @@ function HeaderTable(props){
 
         <>
         <tr>
-            <th colSpan={2}>{props.table} Headers
+            <th colSpan={2}>{props.table}
             </th>
         </tr>
         {rows}        

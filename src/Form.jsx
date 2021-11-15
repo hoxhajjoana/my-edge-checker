@@ -2,6 +2,7 @@ import React, {useRef, useState } from "react";
 import HeaderInput from "./HeaderInput";
 import RequestTable from "./RequestTable";
 import ResponseTable from "./ResponseTable";
+import Modal from "./Modal";
 
 
 function Form(props){
@@ -20,6 +21,10 @@ function Form(props){
     const [sent, setSent] = useState(false)
     const [response, setResponse] =  useState(null)
     const [loading, setLoading] = useState(false)
+
+    const [comError, setComError] = useState(false);
+    const [notOk, setNotOk] = useState(false);
+    const [inputNeeded, setInputNeeded] = useState(false);
 
 
     const handleInputURLChange = (event) => {
@@ -72,6 +77,12 @@ function Form(props){
 
         event.preventDefault();
 
+        if(!inputURL.current.value){
+            setInputNeeded(true);
+            return false;
+        }
+        
+
         setResponse(null);
 
         const requestHeaders = {};
@@ -110,27 +121,26 @@ function Form(props){
         setLoading(true);
         let a = await fetch('http://54.36.202.173:8080/edge-check', requestOptions).catch(err => {
             console.error(err)
-            alert("Communication Error. Please try again")
+            setComError(true);
+            debugger
             return ("error")
         })
         setLoading(false);
 
-        console.log(a)
+        
 
         if(a !== "error"){
             if(a.ok){
                 let jsonRespose = await a.json()
+                console.log(jsonRespose)
                 setResponse(jsonRespose)
             }
             else{
-                let e = await a.text();
-                alert(e)
+                setNotOk(true);
             }
         }
 
-        console.log("response")
-        console.log(response)
-        setSent(true)
+        setSent(true);
 
         return false;
 
@@ -189,16 +199,23 @@ function Form(props){
             
         </form>
 
-    <div>
+        <div>
+            
+            {loading && "Loading..."}
+            
+            {sent && response && !comError && !notOk && <RequestTable url={response.url} responseHeaders={response.responseHeaders} searchString={response.searchString} requestHeaders={response.requestHeaders} errorMessages={response.errorMessages} />}
 
-        {loading && "Loading..."}
-        
-        {sent && response && <RequestTable url={response.url} responseHeaders={response.responseHeaders} searchString={response.searchString} requestHeaders={response.requestHeaders} errorMessages={response.errorMessages}/>}
+            {sent && response && !comError && !notOk && <ResponseTable response={response}/>}
+            
+        </div>
+        <div>
+            {/* MODALS */}
+            {comError && <Modal text="Communication error. Please try again." close={() => {setComError(false)}}/>}
 
+            {notOk && <Modal text="Not an error, but not okay either " close={() => {setNotOk(false)}}/>}
 
-        {sent && response && <ResponseTable response={response}/>}
-
-    </div>
+            {inputNeeded && <Modal text="You need to enter a URL before submitting" close={()=>{setInputNeeded(false)}}/>}
+        </div>
     </>
 
     );
