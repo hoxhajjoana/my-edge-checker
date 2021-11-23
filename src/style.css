@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
+  
 }
 
 .header {
   display: flex;
-  background-color:aliceblue;
+  background-color:rgb(231, 231, 231);
+  color: #93269e;
   min-height: 10vh;
   width: 100%;
   align-items: center;
@@ -24,35 +24,40 @@ body {
 }
 
 form{
-  min-width: 80%;
-  margin: 2em;
+  min-width: 940px;
+  margin: 3% 10%;
   text-align: center;
 }
 
 
 input[type=text]{
-  min-width: 40%;
+  min-width: 100%;
   min-height: 3em;
-  background-color: #daf5fa;
-  color: #006acc;
+  background-color:rgb(241, 241, 241);
+  color: #93269e;
   padding: 0.8em, 1.2em;
-  margin: 0.1em 1.2em;
+  margin: 0.1em 0;
   border: none;
   border-radius: 0.5em;
 }
 
 input[type=submit] {
-  width: 40%;
-  background-color: #008cff;
+  width: 100%;
+  background-color: #93269e;
   color: white;
   padding: 0.8em 1.2em;
-  margin: 0.1em 1.2em; 
+  margin: 0.1em 0; 
   border: none;
   border-radius:0.5em;
   cursor: pointer;
 }
+
+input[type=text].headerInput {
+  min-width: 44%;
+}
+
 input[type=submit]:hover{
-  background-color:#006acc;
+  background-color:#5a0096;
 }
 
 button[type=button]{
@@ -63,13 +68,21 @@ button[type=button]{
   width: 2em;
   font-weight: bold;
   border-radius: 50%;
-  background-color: #008cff;
+  background-color: #93269e;
   color: white;
   text-align: center;
 }
 
 button[type=button]:hover{
-  background-color: #006acc;
+  background-color: #5a0096;
+}
+
+button[type=button].remove{
+  background-color: #ff8000;
+}
+
+button[type=button].remove:hover{
+  background-color: #ff0000;
 }
 
 table, th, td {
@@ -142,4 +155,11 @@ th,td{
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+
+  form{
+    min-width: 94%
+  }  
 }

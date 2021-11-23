@@ -25,10 +25,10 @@ function HeaderInput(props){
 
         <>
         
-        <input type="text" placeholder={`${props.type} Header Key:`} ref={keyInput} onChange={handleKeyChange}/>
+        <input type="text" className="headerInput" style={{marginLeft: 0, marginRight: "5%"}} placeholder={`${props.type} Header Key:`} ref={keyInput} onChange={handleKeyChange}/>
     
-        <input type="text" placeholder={`${props.type} Header Value:`} ref={valueInput} onChange={handleValueChange}/>
-
+        <input type="text" className="headerInput" style={{marginLeft: "5%", marginRight: 0}} placeholder={`${props.type} Header Value:`} ref={valueInput} onChange={handleValueChange}/>
+        
         <br/><br/>
 
         </>
