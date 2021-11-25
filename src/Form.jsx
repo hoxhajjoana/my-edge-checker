@@ -91,12 +91,7 @@ function Form(props){
 
         const requestHeaders = {};
         const responseHeaders = {};
-
-        console.log(responseHeadersKeyArray)
-        console.log(responseHeadersValueArray)
-        console.log(requestHeadersKeyArray)
-        console.log(requestHeadersValueArray)
-
+        
         for(let i = 0; i < responseHeadersKeyArray.length; i++){
 
             if(responseHeadersKeyArray[i]!==""){
@@ -161,7 +156,7 @@ function Form(props){
             <br/><br/>
             <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
 
-                <div style={{width:"48%", marginRight: "2%", marginLeft: "auto" }}>
+                <div style={{width:"50%"}}>
                     <label>
                         Request Headers 
                     </label>
@@ -177,7 +172,7 @@ function Form(props){
                     {requestContents}
                 </div>
                 
-                <div style={{width:"48%", marginLeft: "2%", marginRight: "auto"}}>
+                <div style={{width:"51%"}}>
                     <label>
                         Response Headers 
                     </label>

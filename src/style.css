@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  font-family: 'Nunito Sans', sans-serif;
   
 }
 
@@ -54,6 +53,7 @@ input[type=submit] {
 
 input[type=text].headerInput {
   min-width: 44%;
+  margin: 0.2em 2.5%
 }
 
 input[type=submit]:hover{
