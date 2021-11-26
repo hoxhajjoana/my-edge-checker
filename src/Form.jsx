@@ -201,8 +201,10 @@ function Form(props){
         <div>
             
             {loading && "Loading..."}
-            
+            <br/>
             {sent && response && !comError && !notOk && <RequestTable url={response.url} responseHeaders={response.responseHeaders} searchString={response.searchStrings} requestHeaders={response.requestHeaders} errorMessages={response.errorMessages} />}
+            
+            <br/>
 
             {sent && response && !comError && !notOk && <ResponseTable response={response}/>}
             

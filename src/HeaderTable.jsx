@@ -17,8 +17,10 @@ function HeaderTable(props){
 
         <>
         <tr>
-            <th colSpan={2}>{props.table}
+            <th>
+                {props.table}
             </th>
+            <th>&nbsp;</th>
         </tr>
         {rows}        
         </>
