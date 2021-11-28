@@ -34,7 +34,7 @@ input[type=text]{
   min-height: 3em;
   background-color:rgb(241, 241, 241);
   color: #93269e;
-  padding: 0.8em, 1.2em;
+  padding: 1px 0 1px 0;
   margin: 0.1em 0;
   border: none;
   border-radius: 0.5em;
@@ -52,8 +52,16 @@ input[type=submit] {
 }
 
 input[type=text].headerInput {
-  min-width: 44%;
+  min-width: 42%;
   margin: 0.2em 2.5%
+}
+
+input[type=text].headerInput.left {
+  margin-left: 0;
+}
+
+input[type=text].headerInput.right {
+  margin-right: 0;
 }
 
 input[type=submit]:hover{
@@ -79,6 +87,7 @@ button[type=button]:hover{
 
 button[type=button].remove{
   background-color: #ff8000;
+  margin: 0.5em;
 }
 
 button[type=button].remove:hover{

@@ -29,22 +29,11 @@ function Form(props){
             
             setRequestHeadersKeyArray(keyArray);
             setRequestHeadersValueArray(valueArray);
-
-            console.log("request headers");
-            console.log(requestHeadersKeyArray);
-            console.log(requestHeadersValueArray);
         }
         else if(type==="Response"){
-        
-            keyArray[id] = key;
-            valueArray[id] = value;
             
             setResponseHeadersKeyArray(keyArray);
             setResponseHeadersValueArray(valueArray);
-
-            console.log("response headers");
-            console.log(responseHeadersKeyArray);
-            console.log(responseHeadersValueArray);
         }
     }    
 
@@ -53,9 +42,9 @@ function Form(props){
     const [responseChange, setResponseChange] = useState(1);
 
     const [requestContents, setRequestContents] = useState([<HeaderInput type="Request" callBack={getHeaderInput}
-        headerKeys={requestHeadersKeyArray} headerValues={requestHeadersValueArray} key={requestChange} id={requestChange}/>]);
+        headerKeys={requestHeadersKeyArray} headerValues={requestHeadersValueArray} key={0} id={0}/>]);
     const [responseContents, setResponseContents] = useState([<HeaderInput type="Response" callBack={getHeaderInput} 
-    headerKeys={responseHeadersKeyArray} headerValues={responseHeadersValueArray} key={responseChange} id={responseChange}/>]);
+    headerKeys={responseHeadersKeyArray} headerValues={responseHeadersValueArray} key={0} id={0}/>]);
 
     
     const [sent, setSent] = useState(false)
@@ -69,12 +58,10 @@ function Form(props){
 
     const handleInputURLChange = (event) => {
         inputURL.current.value = event.target.value;
-        console.log(inputURL.current.value)
     }
 
     const handleSearchStringChange = (event) => {
         searchString.current.value = event.target.value;
-        console.log(searchString.current.value)
     }
 
     async function handleSubmit(event){
@@ -119,7 +106,7 @@ function Form(props){
 
         setLoading(true);
         let a = await fetch('http://54.36.202.173:8080/edge-check', requestOptions).catch(err => {
-            console.error(err)
+            console.error(err);
             setComError(true);
             debugger
             return ("error")
@@ -131,8 +118,8 @@ function Form(props){
         if(a !== "error"){
             if(a.ok){
                 let jsonRespose = await a.json()
-                console.log(jsonRespose)
-                setResponse(jsonRespose)
+                console.log(jsonRespose);
+                setResponse(jsonRespose);
             }
             else{
                 setNotOk(true);
@@ -142,7 +129,7 @@ function Form(props){
         setSent(true);
 
         return false;
-
+    
     }  
     
 
@@ -151,7 +138,7 @@ function Form(props){
         <>
         <form onSubmit={handleSubmit}> 
 
-            <input placeholder="Input URL:" type="text" ref={inputURL} onChange={handleInputURLChange}/>
+            <input placeholder=" Input URL:" type="text" ref={inputURL} onChange={handleInputURLChange}/>
 
             <br/><br/>
             <div style={{display:"flex", justifyContent:"center", width:"100%"}}>
@@ -172,7 +159,7 @@ function Form(props){
                     {requestContents}
                 </div>
                 
-                <div style={{width:"51%"}}>
+                <div style={{width:"50%"}}>
                     <label>
                         Response Headers 
                     </label>
@@ -190,7 +177,7 @@ function Form(props){
                 </div>
             </div>
 
-            <input placeholder="Search String:" type="text" ref={searchString} onChange={handleSearchStringChange}/>
+            <input placeholder=" Search String:" type="text" ref={searchString} onChange={handleSearchStringChange}/>
 
             <br/><br/>
 
